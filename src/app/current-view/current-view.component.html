@@ -1,0 +1,21 @@
+<div class="container-fluid">
+    <nav class="d-flex justify-content-between align-items-center py-3">
+        <button class="btn btn-light" (click)="toggleMenu()">
+            <i class="mdi mdi-menu icon-lg"></i>
+        </button>
+
+        <h2 class="text-center flex-grow-1 m-0">{{ currentMonth }} <br> {{currentMonthLabel}}</h2>
+
+        <button class="btn btn-light">
+            <i class="mdi mdi-account-circle icon-lg"></i>
+        </button>
+    </nav>
+
+    <div class="mt-3">
+        <app-generic-table></app-generic-table>
+    </div>
+
+    <button class="btn btn-primary btn-lg rounded-circle position-fixed bottom-3 end-3 shadow" (click)="onAddClick()">
+        <i class="mdi mdi-plus"></i>
+    </button>
+</div>
