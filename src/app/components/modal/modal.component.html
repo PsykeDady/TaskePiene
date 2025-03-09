@@ -1,1 +1,12 @@
-<p>modal works!</p>
+<!-- Menu laterale -->
+<div class="sidebar" [class.open]="isOpen">
+
+    <ul class="list-unstyled">
+        <li *ngFor="let info of infoOptions">
+            <a [routerLink]="info.link">{{ info.name }}</a>
+        </li>
+    </ul>
+</div>
+
+<!-- Overlay per chiudere il menu quando si clicca fuori -->
+<div class="overlay" *ngIf="isOpen" (click)="toggleMenu()"></div>

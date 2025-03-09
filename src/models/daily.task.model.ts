@@ -1,5 +1,7 @@
+export type Piattaforma = "WD" | "Jira" | "EH";
+
 export type CheckMap = {
-    [piattaforma: string]: boolean;
+    [piattaforma in Piattaforma]?: boolean;
 };
 
 export interface DailyTask {

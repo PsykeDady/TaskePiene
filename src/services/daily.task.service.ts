@@ -42,42 +42,40 @@ export class DailyTaskService {
   }
 
   /**
-   * Scarica i dati da una fonte esterna e aggiorna la lista
+   * Scarica i dati da una fonte esterna tramite una callback generica
    */
-  fetchTasks(callback: (data: DailyTask[]) => void): void {
-    // Simulazione di un'API esterna (sostituire con una chiamata HTTP)
-    setTimeout(() => {
-      const mockData: DailyTask[] = [
-        {
-          giorno: new Date(),
-          task: 'Sviluppo nuova feature',
-          epica: 'EPIC-123',
-          initiative: 'Initiative A',
-          ore: 4,
-          check: { 'Jira': true, 'GitHub': false }
-        },
-        {
-          giorno: new Date(),
-          task: 'Fix bug critico',
-          epica: 'EPIC-456',
-          initiative: 'Initiative B',
-          ore: 2,
-          check: { 'Jira': true, 'GitHub': true }
-        }
-      ];
-      this.tasks = mockData;
-      callback(this.tasks);
-    }, 1000); // Simulazione di ritardo di rete
+  fetchTasks(callback: () => DailyTask[]): void {
+    this.tasks = callback(); // Esegue la callback e aggiorna la lista
   }
 
   /**
-   * Salva i dati su una fonte esterna con una callback
+   * Salva i dati su una fonte esterna tramite una callback generica
    */
-  saveTasks(callback: (success: boolean) => void): void {
-    // Simulazione di un'API di salvataggio
-    setTimeout(() => {
-      console.log('Dati salvati:', this.tasks);
-      callback(true);
-    }, 1000);
+  saveTasks(callback: (data: DailyTask[]) => void): void {
+    callback(this.tasks); // Passa i dati attuali alla funzione di salvataggio
+  }
+
+  /**
+   * Mock di dati di esempio, da usare come callback in fetchTasks
+   */
+  mockCallback(): DailyTask[] {
+    return [
+      {
+        giorno: new Date(),
+        task: 'Sviluppo nuova feature',
+        epica: 'EPIC-123',
+        initiative: 'Initiative A',
+        ore: 4,
+        check: { 'Jira': true, 'WD': false }
+      },
+      {
+        giorno: new Date(),
+        task: 'Fix bug critico',
+        epica: 'EPIC-456',
+        initiative: 'Initiative B',
+        ore: 2,
+        check: { 'Jira': true, 'WD': true }
+      }
+    ];
   }
 }

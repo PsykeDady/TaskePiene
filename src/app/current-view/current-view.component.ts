@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { GenericTableComponent } from "../components/generic-table/generic-table.component";
+import { DailyTableComponent } from "../components/tables/daily-table/daily-table.component";
 
 @Component({
   selector: 'app-current-view',
-  imports: [GenericTableComponent],
+  imports: [DailyTableComponent],
   templateUrl: './current-view.component.html',
   styleUrl: './current-view.component.scss'
 })
@@ -24,11 +24,6 @@ export class CurrentViewComponent {
     ];
     this.currentMonth = `${year}/${month + 1}`;
     this.currentMonthLabel = `${monthNames[month]}`;
-  }
-
-  // Metodo per gestire il toggle del menu
-  toggleMenu() {
-    console.log('Menu toggled');
   }
 
   // Metodo per gestire il click del pulsante +
