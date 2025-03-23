@@ -1,12 +1,11 @@
-<!-- Menu laterale -->
-<div class="sidebar" [class.open]="isOpen">
-
+<div class="sidebar" [class.open]="isOpen" tabindex="-1">
     <ul class="list-unstyled">
         <li *ngFor="let info of infoOptions">
-            <a [routerLink]="info.link">{{ info.name }}</a>
+            <a [routerLink]="info.link" (click)="onLinkClick($event)">{{ info.name }}</a>
         </li>
     </ul>
 </div>
 
-<!-- Overlay per chiudere il menu quando si clicca fuori -->
-<div class="overlay" *ngIf="isOpen" (click)="toggleMenu()"></div>
+
+<button type="button" class="overlay btn p-0 border-0" *ngIf="isOpen" (click)="toggleMenu()">
+</button>

@@ -21,4 +21,10 @@ export class ModalComponent {
     this.isOpen=!this.isOpen;
     this.toggleEvent.emit(this.isOpen)
   }
+
+  onLinkClick(event: MouseEvent) {
+    event.stopPropagation();
+    this.toggleMenu();
+  }
+  
 }
