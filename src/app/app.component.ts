@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ModalComponent } from "./components/modal/modal.component";
+import { ModalComponent } from "./components/modals/sidemenu/sidemenu.component";
 
 @Component({
   selector: 'app-root',

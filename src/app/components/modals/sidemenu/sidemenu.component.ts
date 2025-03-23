@@ -1,13 +1,13 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import infoOptions, { InfoOption } from '../../../models/info.options';
+import infoOptions, { InfoOption } from '../../../../models/info.options';
 
 @Component({
   selector: 'app-modal',
-  templateUrl: './modal.component.html',
+  templateUrl: './sidemenu.component.html',
   imports: [RouterModule, CommonModule],
-  styleUrls: ['./modal.component.scss']
+  styleUrls: ['./sidemenu.component.scss']
 })
 export class ModalComponent {
 
