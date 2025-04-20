@@ -9,6 +9,11 @@
         <app-daily-table></app-daily-table>
     </div>
 
+    
+    <div class="mt-3" *ngIf="showModal">
+        <app-add-daily (close)="onModalClose()"></app-add-daily>
+    </div>
+
     <button class="btn btn-primary btn-lg rounded-circle position-fixed bottom-3 end-3 shadow" (click)="onAddClick()">
         <i class="mdi mdi-plus"></i>
     </button>

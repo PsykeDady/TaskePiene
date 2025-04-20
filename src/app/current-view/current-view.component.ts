@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { DailyTableComponent } from "../components/tables/daily-table/daily-table.component";
+import { AddDailyComponent } from '../components/modals/add-daily/add-daily.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-current-view',
-  imports: [DailyTableComponent],
+  imports: [DailyTableComponent,AddDailyComponent, CommonModule],
   templateUrl: './current-view.component.html',
   styleUrl: './current-view.component.scss'
 })
@@ -11,6 +13,8 @@ export class CurrentViewComponent {
 
   currentMonth: string = "";
   currentMonthLabel: string = "";
+  showModal = true;
+
 
   constructor() { }
 
@@ -26,8 +30,15 @@ export class CurrentViewComponent {
     this.currentMonthLabel = `${monthNames[month]}`;
   }
 
-  // Metodo per gestire il click del pulsante +
   onAddClick() {
-    console.log('Azione di aggiunta');
+    console.log('Apertura modale per aggiungere una nuova consuntivazione');
+    console.log(this.showModal)
+    this.showModal = true;
+  }
+
+  onModalClose() {
+    console.log('Chiusura modale per aggiungere una nuova consuntivazione');
+    console.log(this.showModal)
+    this.showModal = false;
   }
 }
